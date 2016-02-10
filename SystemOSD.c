@@ -573,3 +573,39 @@ mode_pengiriman()
     }
 
 }
+tagihan()
+{
+    system("cls");
+    int pilihan;
+    strcpy(tagih.nama,tampung->nama);
+    total_tagihan=harga_barang+ongkos;
+    tagih.total_tagihan=total_tagihan;
+    printf("Nama Customer       = %s\n", tagih.nama);
+    printf("Alamat Customer     = %s\n", tagih.alamat);
+    printf("Kode Barang         = %s\n", tagih.kode_barang);
+    printf("Nama Barang         = %s\n", tagih.nama_barang);
+    printf("Ukuran Barang       = %s\n", tagih.size);
+    printf("Total harga barang  = Rp. %d\n", tagih.total_harga_barang);
+    printf("Biaya Pengiriman    = Rp. %d\n", tagih.ongkos_pengiriman);
+    printf("Total Biaya         = Rp. %d", tagih.total_tagihan);
+
+    printf("\n\n");
+    printf("1. Bayar Tagihan\n");
+    printf("2. Menu Order\n");
+    printf("Masukkan Pilihan Anda: ");
+    scanf ("%d", &pilihan);
+    if (pilihan==1)
+    {
+        pembayaran();
+    }
+    else if (pilihan==2)
+    {
+        order();
+    }
+    else
+    {
+        printf("Input yg anda masukkan salah !! Silahkan Ulangi Kembali");
+        tagihan();
+    }
+}
+
