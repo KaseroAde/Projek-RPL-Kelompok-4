@@ -351,3 +351,225 @@ pembayaran()
         menu_utama();
     }
 }
+Topi()
+{
+    system("cls");
+    int i,pilihan;
+    printf("\t\tHat Product\n");
+    printf("Kode Barang \tNama Barang \t\tHarga \t\tSize\n");
+    printf("======================================================================\n\n");
+    for (i=0;i<5;i++)
+    {
+        printf("%s \t\t%s \t\tRp. %d \t\t%s \n", brg[i].kode_barang, brg[i].nama_barang, brg[i].harga, brg[i].size);
+    }
+    printf("\n\n");
+    printf("1. Order\n");
+    printf("2. Menu Sebelumnya\n");
+    printf("Masukkan Pilihan Anda: ");
+    scanf ("%d", &pilihan);
+    if (pilihan==1)
+    {
+        order();
+    }
+    else if (pilihan==2)
+    {
+        lihat_barang();
+    }
+    else
+    {
+        printf("Input yg anda masukkan salah !! Silahkan Ulangi Kembali");
+        Topi();
+    }
+}
+Baju()
+{
+    system("cls");
+    int i,pilihan;
+    printf("\t\tClothes Product\n");
+    printf("Kode Barang \tNama Barang \t\tHarga \t\tSize\n");
+    printf("=====================================================================\n\n");
+    for (i=5;i<10;i++)
+    {
+        printf("%s \t\t%s \t\tRp. %d \t\t%s \n", brg[i].kode_barang, brg[i].nama_barang, brg[i].harga, brg[i].size);
+    }
+    printf("\n\n");
+    printf("1. Order\n");
+    printf("2. Menu Sebelumnya\n");
+    printf("Masukkan Pilihan Anda: ");
+    scanf ("%d", &pilihan);
+    if (pilihan==1)
+    {
+        order();
+    }
+    else if (pilihan==2)
+    {
+        lihat_barang();
+    }
+    else
+    {
+        printf("Input yg anda masukkan salah !! Silahkan Ulangi Kembali");
+        Baju();
+    }
+
+}
+Celana()
+{
+    system("cls");
+    int i, pilihan;
+    printf("\t\tPants Product\n");
+    printf("Kode Barang \tNama Barang \t\t\tHarga \t\tSize\n");
+    printf("========================================================================\n\n");
+    for (i=10;i<15;i++)
+    {
+        printf("%s \t\t%s \t\tRp. %d \t\t%s \n", brg[i].kode_barang, brg[i].nama_barang, brg[i].harga, brg[i].size);
+    }
+    printf("\n\n");
+    printf("1. Order\n");
+    printf("2. Menu Sebelumnya\n");
+    printf("Masukkan Pilihan Anda: ");
+    scanf ("%d", &pilihan);
+    if (pilihan==1)
+    {
+        order();
+    }
+    else if (pilihan==2)
+    {
+        lihat_barang();
+    }
+    else
+    {
+        printf("Input yg anda masukkan salah !! Silahkan Ulangi Kembali");
+        Celana();
+    }
+}
+Sepatu()
+{
+    system("cls");
+    int i, pilihan;
+    printf("\t\tShoes Product\n");
+    printf("Kode Barang \tNama Barang \t\t\tHarga \t\tSize\n");
+    printf("=========================================================================\n\n");
+    for (i=15;i<20;i++)
+    {
+        printf("%s \t\t%s \t\tRp. %d \t\t%s \n", brg[i].kode_barang, brg[i].nama_barang, brg[i].harga, brg[i].size);
+    }
+    printf("\n\n");
+    printf("1. Order\n");
+    printf("2. Menu Sebelumnya\n");
+    printf("Masukkan Pilihan Anda: ");
+    scanf ("%d", &pilihan);
+    if (pilihan==1)
+    {
+        order();
+    }
+    else if (pilihan==2)
+    {
+        lihat_barang();
+    }
+    else
+    {
+        printf("Input yg anda masukkan salah !! Silahkan Ulangi Kembali");
+        Sepatu();
+    }
+}
+pemesanan()
+{
+    system("cls");
+    int i, pilihan, price;
+    tampung_barang=(struct barang*)malloc(sizeof(struct barang));
+    char kode[20], jawab[5];fflush(stdin);
+
+    printf("\nInputkan kode barang: ");
+    gets(kode); strcpy(tagih.kode_barang,kode);fflush(stdin);
+    printf("\nJumlah yang dipesan: ");
+    scanf("%d", &jumlah);fflush(stdin);
+    for (i=0;i<20;i++)
+    {
+         if (strcmp(kode,brg[i].kode_barang)==0)
+    {
+        strcpy(tagih.nama_barang,brg[i].nama_barang);
+        harga_barang=harga_barang+(brg[i].harga*jumlah);
+        price=brg[i].harga;
+    }
+    }
+    printf("Inputkan ukuran barang: ");
+    gets(ukuran);strcpy(tagih.size,ukuran);
+    printf("\n\nTotal Pemesanan(Harga X Jumlah)\nHarga Barang Rp. %d X %d\n========\nTotal  Rp. %d,-",price,jumlah, harga_barang);
+
+    tagih.total_harga_barang=harga_barang;
+    printf("\n\n");
+    printf("1. Pengiriman\n");
+    printf("2. Menu Sebelumnya\n");
+    printf("Masukkan Pilihan Anda: ");
+    scanf ("%d", &pilihan);
+    if (pilihan==1)
+    {
+        mode_pengiriman();
+    }
+    else if (pilihan==2)
+    {
+        order();
+    }
+    else
+    {
+        printf("Input yg anda masukkan salah !! Silahkan Ulangi Kembali");
+        pemesanan();
+    }
+
+}
+mode_pengiriman()
+{
+    system("cls");
+    int pilihan,pilihanx;
+    char alamat[30];fflush(stdin);
+    printf("Masukkan Alamat Lengkap yang dituju:\n");
+    gets(alamat);strcpy(tagih.alamat,alamat);fflush(stdin);
+    printf("\nPilih Maskapai untuk Mengirim Barang:\n");
+    printf("1. Tiki Rp. 28.000/barang\n");
+    printf("2. JNE Rp. 25.000/barang\n");
+    printf("3. Indah Cargo Rp. 22.000/barang\n");
+     printf("Masukkan Pilihan Anda: ");
+    scanf ("%d", &pilihan);
+    if (pilihan==1)
+    {
+        ongkos=28000*jumlah;
+        tagih.ongkos_pengiriman=ongkos;
+        printf("\nBiaya Pengiriman (Ongkos * Jumlah Barang) Rp.28000 * %d= %d\n  ", jumlah, ongkos);
+    }
+    else if (pilihan==2)
+    {
+        ongkos=25000*jumlah;
+        tagih.ongkos_pengiriman=ongkos;
+        printf("\nBiaya Pengiriman (Ongkos * Jumlah Barang) Rp.25000 * %d= %d", jumlah, ongkos);
+    }
+    else if (pilihan==3)
+    {
+        ongkos=22000*jumlah;
+        tagih.ongkos_pengiriman=ongkos;
+        printf("\nBiaya Pengiriman (Ongkos * Jumlah Barang) Rp.22000 * %d= %d", jumlah, ongkos);
+    }
+    else
+    {
+        printf("Input yg anda masukkan salah !! Silahkan Ulangi Kembali");
+        mode_pengiriman();
+    }
+    printf("\n\n");
+    printf("1. Tagihan\n");
+    printf("2. Menu order\n");
+    printf("Masukkan pilihan anda: ");
+    scanf ("%d", &pilihanx);
+    if (pilihanx==1)
+    {
+        tagihan();
+    }
+    else if (pilihanx==2)
+    {
+        order();
+    }
+    else
+    {
+        printf("Input yg anda masukkan salah !! Silahkan Ulangi Kembali");
+        mode_pengiriman();
+    }
+
+}
