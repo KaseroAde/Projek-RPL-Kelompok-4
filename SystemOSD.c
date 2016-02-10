@@ -108,3 +108,69 @@ main()
         login();
     }
  }
+ void menu_awal()
+ {
+     system("cls");
+     int pilihan;
+    printf("Simulasi Aplikasi Online Shop distro\n");
+    printf("====================================\n\n");
+    printf("1. Daftar\n");
+    printf("2. Login\n");
+    printf("3. Exit\n\n");
+
+    printf("Masukkan Pilihan Anda: ");
+    scanf ("%d", &pilihan);
+    if (pilihan==1)
+    {
+        daftar();
+    }
+    else if (pilihan==2)
+    {
+        login();
+    }
+    else if (pilihan==3)
+    {
+        exit(1);
+    }
+    else
+    {
+        printf("Input yg anda masukkan salah !! Silahkan Ulangi Kembali");
+        menu_awal();
+    }
+    getch();
+ }
+void menu_utama()
+{
+    system("cls");
+    int pilihan;
+    printf("Selamat Datang Customer %s di Online Shop Distro\n\n", tampung->nama);
+    printf("1. Lihat Barang\n");
+    printf("2. Order\n");
+    printf("3. Pembayaran\n");
+    printf("4. Logout\n");
+    printf("Masukkan Pilihan Anda: ");
+    scanf ("%d", &pilihan);
+    if (pilihan==1)
+    {
+        lihat_barang();
+    }
+    else if (pilihan==2)
+    {
+        order();
+    }
+    else if (pilihan==3)
+    {
+        pembayaran();
+    }
+    else if (pilihan==4)
+    {
+        menu_awal();
+    }
+    else
+    {
+        printf("Input yg anda masukkan salah !! Silahkan Ulangi Kembali");
+        menu_utama();
+    }
+    getch();
+
+}
