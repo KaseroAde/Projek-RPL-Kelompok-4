@@ -174,3 +174,180 @@ void menu_utama()
     getch();
 
 }
+lihat_barang()
+{
+    system("cls");
+    int pilihan;
+    printf("Our Product\n");
+    printf("=============\n\n");
+    printf("1. Topi\n");
+    printf("2. Baju\n");
+    printf("3. Celana\n");
+    printf("4. Sepatu\n");
+    printf("5. Menu Utama\n");
+    printf("Masukkan Pilihan Anda: ");
+    scanf ("%d", &pilihan);
+    if (pilihan==1)
+    {
+        Topi();
+    }
+    else if (pilihan==2)
+    {
+        Baju();
+    }
+    else if (pilihan==3)
+    {
+        Celana();
+    }
+    else if (pilihan==4)
+    {
+        Sepatu();
+    }
+    else if (pilihan==5)
+    {
+        menu_utama();
+    }
+    else
+    {
+        printf("Input yg anda masukkan salah !! Silahkan Ulangi Kembali");
+        lihat_barang();
+    }
+    getch();
+}
+order()
+{
+    system("cls");
+    int pilihan;
+    printf("1. Pemesanan\n");
+    printf("2. Pemilihan Mode Pengiriman\n");
+    printf("3. Tagihan\n");
+    printf("4. Menu Utama\n");
+    printf("Masukkan Pilihan Anda: ");
+    scanf ("%d", &pilihan);
+    if (pilihan==1)
+    {
+        pemesanan();
+    }
+    else if (pilihan==2)
+    {
+        mode_pengiriman();
+    }
+    else if (pilihan==3)
+    {
+        tagihan();
+    }
+    else if (pilihan==4)
+    {
+        menu_utama();
+    }
+    else
+    {
+        printf("Input yg anda masukkan salah !! Silahkan Ulangi Kembali");
+        order();
+    }
+    getch();
+}
+pembayaran()
+{
+    system("cls");
+    int pilihan,pilihanx, norek, setor,notran ;
+    tagih1=(struct tagihan*)malloc(sizeof(struct tagihan));
+    char namabank[20];
+    printf("Pembayaran\n");
+    printf("============\n\n");
+    printf("Nama Customer       = %s\n",tagih.nama);
+    printf("Total Tagihan         = Rp. %d\n", tagih.total_tagihan);
+    printf("\n\nBayar Via : \n");
+    printf("1. Bayar Langsung\n");
+    printf("2. Bill ATM\n");
+    printf("3. Menu Utama\n");
+    printf("Masukkan Pilihan Anda: ");
+    scanf ("%d", &pilihan);
+    if (pilihan==1)
+    {
+        printf("Inputkan Nomor Rekning  : ");
+        scanf("%d", &norek);fflush(stdin);
+        printf("Inputkan Nama Bank      :");
+        gets(namabank);fflush(stdin);
+        printf("Inputkan Jumlah Setoran :");
+        scanf("%d", &setor);
+        if (setor==tagih.total_tagihan)
+        {
+            total_tagihan=0;
+            harga_barang=0;
+            ongkos=0;
+            tagih.total_tagihan=0;
+            tagih.total_harga_barang=0;
+            tagih.ongkos_pengiriman=0;
+            printf("Tagihan Lunas !! ");
+        }
+
+        printf("\n\n");
+    printf("1. Menu Utama\n");
+    printf("2. Menu Sebelumnya\n");
+    printf("Masukkan Pilihan Anda: ");
+    scanf ("%d", &pilihanx);
+    if (pilihanx==1)
+    {
+        menu_utama();
+    }
+    else if (pilihanx==2)
+    {
+        tagihan();
+    }
+    else
+    {
+        printf("Input yg anda masukkan salah !! ");
+        menu_utama();
+    }
+    }
+    else if (pilihan==2)
+    {
+        printf("Inputkan Nomor Rekening  : ");
+        scanf("%d", &norek);fflush(stdin);
+        printf("Inputkan Nama Bank      :");
+        gets(namabank);fflush(stdin);
+        printf("Inputkan Nomor transaksi  : ");
+        scanf("%d", &notran);fflush(stdin);
+        printf("Inputkan Jumlah Setoran :");
+        scanf("%d", &setor);
+        if (setor==tagih.total_tagihan)
+        {
+            total_tagihan=0;
+            harga_barang=0;
+            ongkos=0;
+            tagih.total_tagihan=0;
+            tagih.total_harga_barang=0;
+            tagih.ongkos_pengiriman=0;
+            printf("Tagihan Lunas !! ");
+        }
+
+        printf("\n\n");
+    printf("1. Menu Utama\n");
+    printf("2. Menu Sebelumnya\n");
+    printf("Masukkan Pilihan Anda: ");
+    scanf ("%d", &pilihanx);
+    if (pilihanx==1)
+    {
+        menu_utama();
+    }
+    else if (pilihanx==2)
+    {
+        tagihan();
+    }
+    else
+    {
+        printf("Input yg anda masukkan salah !! Silahkan Ulangi Kembali");
+        menu_utama();
+    }
+    }
+    else if (pilihan==3)
+    {
+        menu_utama();
+    }
+    else
+    {
+        printf("Input yg anda masukkan salah !! ");
+        menu_utama();
+    }
+}
